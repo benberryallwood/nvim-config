@@ -13,6 +13,7 @@ gitsigns.setup {
   },
   signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
   numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
+
   linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
   word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
   watch_gitdir = {
@@ -45,4 +46,30 @@ gitsigns.setup {
   yadm = {
     enable = false,
   },
+  on_attach = function(bufnr)
+    local keymap = vim.api.nvim_set_keymap
+
+    -- Navigation
+    keymap('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
+    keymap('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
+  --
+  --   -- Actions
+    keymap('n', '<leader>hs', ':Gitsigns stage_hunk<CR>', {})
+    keymap('v', '<leader>hs', ':Gitsigns stage_hunk<CR>', {})
+    keymap('n', '<leader>hr', ':Gitsigns reset_hunk<CR>', {})
+    keymap('v', '<leader>hr', ':Gitsigns reset_hunk<CR>', {})
+  --   keymap('n', '<leader>hS', gs.stage_buffer, {})
+    keymap('n', '<leader>hu', ':Gitsigns undo_stage_hunk<CR>', {})
+  --   keymap('n', '<leader>hR', gs.reset_buffer, {})
+    keymap('n', '<leader>hp', ':Gitsigns preview_hunk<CR>', {})
+    keymap('n', '<leader>hb', ':Gitsigns blame_line<CR>', {})
+  --   keymap('n', '<leader>tb', gs.toggle_current_line_blame, {})
+    keymap('n', '<leader>hd', ':Gitsigns diffthis<CR>', {})
+  --   keymap('n', '<leader>hD', function() gs.diffthis('~') end, {})
+  --   keymap('n', '<leader>td', gs.toggle_deleted, {})
+  --
+  --   -- Text object
+    keymap('o', 'ih', ':<C-U>Gitsigns select_hunk<CR>', {})
+    keymap('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>', {})
+  end
 }

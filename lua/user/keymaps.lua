@@ -48,6 +48,28 @@ keymap("n", "<leader>ft", "<cmd>Telescope live_grep<CR>", opts)
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
+-- Rest.nvim
+keymap("n", "<leader>hh", ":<Plug>RestNvim<CR>", opts)
+
+-- Symbols outline
+keymap("n", "<leader>o", ":SymbolsOutline<CR>", opts)
+
+-- Testing
+keymap("n", "<leader>tt", ":TestNearest<CR>", opts)
+keymap("n", "<leader>tf", ":TestFile<CR>", opts)
+keymap("n", "<leader>ta", ":TestSuite<CR>", opts)
+keymap("n", "<leader>tl", ":TestLast<CR>", opts)
+keymap("n", "<leader>tg", ":TestVisit<CR>", opts)
+
+-- Git
+keymap("n", "<leader>g", ":G<CR>", opts)
+keymap("n", "<leader>m", ":MerginalToggle<CR>", opts)
+
+-- Run with Python
+keymap("n", "<leader>rr", ":!python %<CR>", opts)
+
+
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)

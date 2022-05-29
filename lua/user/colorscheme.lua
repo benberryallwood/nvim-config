@@ -1,4 +1,7 @@
-local colorscheme = "nightfox"
+-- vim.cmd [[set background=light]]
+-- vim.cmd [[let g:everforest_background = "hard"]]
+-- local colorscheme = "dim"
+local colorscheme = "nordfox"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
