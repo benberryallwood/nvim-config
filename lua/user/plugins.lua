@@ -18,8 +18,8 @@ end
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd([[
   augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+	autocmd!
+	autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -52,6 +52,10 @@ return packer.startup(function(use)
 	use("rmehri01/onenord.nvim")
 	use("sainnhe/everforest")
 	use("jeffkreeftmeijer/vim-dim")
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -142,8 +146,11 @@ return packer.startup(function(use)
 	-- Impatient (startup time)
 	use("lewis6991/impatient.nvim")
 
-  -- Whichkey
+	-- Whichkey
 	use("folke/which-key.nvim")
+
+	-- Movement
+	use("justinmk/vim-sneak")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
