@@ -77,8 +77,8 @@ return packer.startup(function(use)
 
 	-- Project
 	use("ahmedkhalf/project.nvim")
-  use 'goolord/alpha-nvim'
-  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
+	use("goolord/alpha-nvim")
+	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 
 	-- Treesitter
 	use({
@@ -87,7 +87,7 @@ return packer.startup(function(use)
 	})
 	use("p00f/nvim-ts-rainbow") -- rainbow parentheses
 	use("JoosepAlviste/nvim-ts-context-commentstring") -- context commentstring
-  use("lukas-reineke/indent-blankline.nvim") -- indent guides
+	use("lukas-reineke/indent-blankline.nvim") -- indent guides
 
 	-- Autopairs
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
@@ -137,12 +137,13 @@ return packer.startup(function(use)
 	-- colours
 	use("KabbAmine/vCoolor.vim")
 	use("amadeus/vim-convert-color-to")
+	use("norcalli/nvim-colorizer.lua")
 
-  -- Impatient (startup time)
-  use("lewis6991/impatient.nvim")
+	-- Impatient (startup time)
+	use("lewis6991/impatient.nvim")
 
   -- Whichkey
-  use("folke/which-key.nvim")
+	use("folke/which-key.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
