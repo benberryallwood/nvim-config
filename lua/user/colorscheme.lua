@@ -1,4 +1,4 @@
-vim.g.catppuccin_flavour = "frappe"
+--[[ vim.g.catppuccin_flavour = "frappe" ]]
 -- local colorscheme = "catppuccin"
 
 vim.cmd [[set background=dark]]
