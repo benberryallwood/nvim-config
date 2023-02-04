@@ -57,6 +57,15 @@ return packer.startup(function(use)
 		as = "catppuccin",
 	})
 
+	-- Image of code
+	use({
+		"narutoxy/silicon.lua",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("silicon").setup({})
+		end,
+	})
+
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
 	use("hrsh7th/cmp-buffer") -- buffer completions
@@ -114,6 +123,13 @@ return packer.startup(function(use)
 	use("akinsho/bufferline.nvim")
 	use("moll/vim-bbye")
 
+	-- winbar
+	-- use("fgheng/winbar.nvim")
+	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
+	})
+
 	-- lualine
 	use("nvim-lualine/lualine.nvim")
 
@@ -121,22 +137,33 @@ return packer.startup(function(use)
 	use("akinsho/toggleterm.nvim")
 
 	-- http
-	use("NTBBloodbath/rest.nvim")
+	--[[ use("NTBBloodbath/rest.nvim") ]]
 
 	-- outline
-	use("simrat39/symbols-outline.nvim")
+	--[[ use("simrat39/symbols-outline.nvim") ]]
 
 	-- surround
 	use("ur4ltz/surround.nvim")
 
 	-- testing
 	use("vim-test/vim-test")
-
-	-- zen mode
-	use("Pocco81/TrueZen.nvim")
-
-	-- tetris
-	use("alec-gibson/nvim-tetris")
+	use("mfussenegger/nvim-dap")
+	use("mfussenegger/nvim-dap-python")
+	use({
+		"rcarriga/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+			"rcarriga/neotest-python",
+		},
+	})
+	use({
+		"rcarriga/nvim-dap-ui",
+		requires = {
+			"mfussenegger/nvim-dap",
+		},
+	})
 
 	-- colours
 	use("KabbAmine/vCoolor.vim")
@@ -151,6 +178,9 @@ return packer.startup(function(use)
 
 	-- Movement
 	use("justinmk/vim-sneak")
+
+	-- jk kj for escape
+	use({ "jdhao/better-escape.vim", event = "InsertEnter" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

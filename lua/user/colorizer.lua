@@ -3,4 +3,8 @@ if not status_ok then
   return
 end
 
-colorizer.setup()
+colorizer.setup {
+  'css';
+  'html';
+  'javascript';
+}
