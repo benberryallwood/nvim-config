@@ -49,7 +49,6 @@ return packer.startup(function(use)
 	use("EdenEast/nightfox.nvim")
 	use("ellisonleao/gruvbox.nvim")
 	use("folke/tokyonight.nvim")
-	use("rmehri01/onenord.nvim")
 	use("sainnhe/everforest")
 	use("jeffkreeftmeijer/vim-dim")
 	use({
