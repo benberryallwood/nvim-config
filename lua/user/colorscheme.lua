@@ -1,6 +1,3 @@
---[[ vim.g.catppuccin_flavour = "frappe" ]]
--- local colorscheme = "catppuccin"
-
 vim.cmd [[set background=dark]]
 -- vim.cmd [[let g:everforest_background = "hard"]]
 -- local colorscheme = "everforest"
