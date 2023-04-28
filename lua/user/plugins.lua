@@ -164,6 +164,7 @@ return packer.startup(function(use)
 			"nvim-treesitter/nvim-treesitter",
 			"antoinemadec/FixCursorHold.nvim",
 			"rcarriga/neotest-python",
+			"rcarriga/neotest-vim-test",
 		},
 	})
 	use({
