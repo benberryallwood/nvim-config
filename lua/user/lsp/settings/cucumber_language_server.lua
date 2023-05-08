@@ -1,8 +1,8 @@
 return {
 	settings = {
 		cucumber = {
-			features = { "**/*.feature" },
-			glue = { "**/steps/*.py" },
+			features = { "features/**/*.feature" },
+			glue = { "features/**/steps/*.py" },
 		},
 	},
 }
