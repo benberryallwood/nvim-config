@@ -86,7 +86,7 @@ local mappings = {
 	},
 	["c"] = {
 		name = "Close",
-		b = { "<cmd>Bd<cr>", "Buffer" },
+		b = { "<cmd>Bd!<cr>", "Buffer" },
 		o = { "<cmd>%bd|e#|bd#<cr>", "Other buffers" },
 	},
 	["d"] = {
@@ -106,7 +106,7 @@ local mappings = {
 		s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
 		q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
 	},
-  ["D"] = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostics list" },
+	["D"] = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostics list" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["f"] = {
 		name = "Find",
@@ -115,17 +115,8 @@ local mappings = {
 		t = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Text" },
 		p = { "<cmd>Telescope projects<cr>", "Projects" },
 	},
-	-- ["w"] = { "<cmd>w!<CR>", "Save" },
-	-- ["q"] = { "<cmd>q!<CR>", "Quit" },
-	-- ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	-- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	-- ["f"] = {
-	--   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-	--   "Find files",
-	-- },
-	["F"] = { "<cmd>Format<cr>", "Format" },
-	-- ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
-
+	["F"] = { "<cmd>lua vim.lsp.buf.format()<CR>", "Format" },
 	-- p = {
 	--   name = "Packer",
 	--   c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -160,18 +151,18 @@ local mappings = {
 		--   },
 	},
 
-  ["q"] = { "<cmd>q<cr>", "Quit" },
+	["q"] = { "<cmd>q<cr>", "Quit" },
 
 	["t"] = {
 		name = "Test",
 		d = { "<cmd>lua require 'neotest'.run.run({strategy = \"dap\"})<cr>", "Debug" },
 		D = { '<cmd>lua require \'neotest\'.run.run({vim.fn.expand("%"), strategy = "dap"})<cr>', "Debug file" },
 		e = { "<cmd>lua require 'neotest'.summary.toggle()<cr>", "Explorer" },
-    f = { "<cmd>lua require 'neotest'.run.run(vim.fn.expand('%'))<cr>", "File" },
-    s = { "<cmd>lua require 'neotest'.run.stop()<cr>", "Stop nearest" },
-    t = { "<cmd>lua require 'neotest'.run.run()<cr>", "Nearest" },
-    p = { "<cmd>lua require('neotest').output_panel.toggle()<cr>", "Output panel" },
-    o = { "<cmd>lua require('neotest').output.open({ enter = true })<cr>", "Output" }
+		f = { "<cmd>lua require 'neotest'.run.run(vim.fn.expand('%'))<cr>", "File" },
+		s = { "<cmd>lua require 'neotest'.run.stop()<cr>", "Stop nearest" },
+		t = { "<cmd>lua require 'neotest'.run.run()<cr>", "Nearest" },
+		p = { "<cmd>lua require('neotest').output_panel.toggle()<cr>", "Output panel" },
+		o = { "<cmd>lua require('neotest').output.open({ enter = true })<cr>", "Output" },
 	},
 
 	["w"] = { "<cmd>w<cr>", "Write" },
@@ -206,28 +197,6 @@ local mappings = {
 	--     "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 	--     "Workspace Symbols",
 	--   },
-	-- },
-	-- s = {
-	--   name = "Search",
-	--   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-	--   c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-	--   h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-	--   M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-	--   r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-	--   R = { "<cmd>Telescope registers<cr>", "Registers" },
-	--   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-	--   C = { "<cmd>Telescope commands<cr>", "Commands" },
-	-- },
-
-	-- t = {
-	--   name = "Terminal",
-	--   n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-	--   u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-	--   t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-	--   p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-	--   f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-	--   h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-	--   v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	-- },
 }
 
