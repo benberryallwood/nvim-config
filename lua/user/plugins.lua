@@ -116,7 +116,7 @@ return {
 	{ "akinsho/toggleterm.nvim" },
 
 	-- outline
-	--[[ use("simrat39/symbols-outline.nvim") ]]
+	{ "simrat39/symbols-outline.nvim" },
 
 	-- surround
 	{ "ur4ltz/surround.nvim" },

@@ -47,6 +47,7 @@
   "refactoring.nvim": { "branch": "master", "commit": "47a1716a9020c0093a1c8af36c3f9434dae62bbd" },
   "silicon.lua": { "branch": "main", "commit": "8db5682c9c13d6de584551c4b2b9982709f05610" },
   "surround.nvim": { "branch": "master", "commit": "36c253d6470910692491b13382f54c9bab2811e1" },
+  "symbols-outline.nvim": { "branch": "master", "commit": "512791925d57a61c545bc303356e8a8f7869763c" },
   "telescope-emoji.nvim": { "branch": "master", "commit": "86248d97be84a1ce83f0541500ef9edc99ea2aa1" },
   "telescope.nvim": { "branch": "master", "commit": "d77b37f4520e5fc2cf4c74c12e42ed4b589bd367" },
   "toggleterm.nvim": { "branch": "main", "commit": "68fdf851c2b7901a7065ff129b77d3483419ddce" },
