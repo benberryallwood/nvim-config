@@ -28,7 +28,7 @@ lualine.setup({
 		lualine_a = {},
 		lualine_b = { { "filename", path = 1 } },
 		-- lualine_b = { "buffers" },
-		lualine_c = { { navic.get_location } },
+		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = { diagnostics },
