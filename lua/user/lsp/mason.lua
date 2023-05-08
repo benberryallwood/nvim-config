@@ -1,48 +1,16 @@
-local M = {}
-
--- TODO: backfill this to template
-M.setup = function()
-	local signs = {
-		{ name = "DiagnosticSignError", text = "" },
-		{ name = "DiagnosticSignWarn", text = "" },
-		{ name = "DiagnosticSignHint", text = "" },
-		{ name = "DiagnosticSignInfo", text = "" },
-	}
-
-	for _, sign in ipairs(signs) do
-		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-	end
-
-	local config = {
-		-- disable virtual text
-		virtual_text = false,
-		-- show signs
-		signs = {
-			active = signs,
-		},
-		update_in_insert = true,
-		underline = true,
-		severity_sort = true,
-		float = {
-			focusable = false,
-			style = "minimal",
-			border = "rounded",
-			source = "always",
-			header = "",
-			prefix = "",
-		},
-	}
-
-	vim.diagnostic.config(config)
-
-	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-		border = "rounded",
-	})
-
-	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-		border = "rounded",
-	})
+local status_ok, mason = pcall(require, "mason")
+if not status_ok then
+	return
 end
+
+mason.setup()
+
+local status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not status_ok then
+	return
+end
+
+mason_lspconfig.setup()
 
 local function lsp_highlight_document(client)
 	-- Set autocommands conditional on server_capabilities
@@ -60,7 +28,14 @@ local function lsp_highlight_document(client)
 	end
 end
 
-M.on_attach = function(client, bufnr)
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not status_ok then
+	return
+end
+
+local on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gl", vim.diagnostic.open_float, bufopts)
 	vim.keymap.set("n", "[d", function()
@@ -78,7 +53,7 @@ M.on_attach = function(client, bufnr)
 	-- vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references, bufopts)
 	vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", bufopts)
 
-	vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", bufopts)
+	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("v", "<leader>ca", ":'<,'>lua vim.lsp.buf.code_action()<CR>", bufopts)
 
 	if client.name == "tsserver" then
@@ -99,20 +74,31 @@ M.on_attach = function(client, bufnr)
 		and client.name ~= "eslint"
 		and client.name ~= "ltex"
 		and client.name ~= "cucumber_language_server"
-    and client.name ~= "ruff_lsp"
+		and client.name ~= "ruff_lsp"
 	then
 		local navic = require("nvim-navic")
 		navic.attach(client, bufnr)
 	end
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local lspconfig = require("lspconfig")
 
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
-	return
-end
-
-M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
-
-return M
+mason_lspconfig.setup_handlers({
+	function(server_name)
+		lspconfig[server_name].setup({
+			on_attach = on_attach,
+			capabilities = cmp_nvim_lsp.default_capabilities(capabilities),
+		})
+	end,
+	["ruff_lsp"] = function()
+		lspconfig.ruff_lsp.setup({
+			on_attach = on_attach,
+			capabilities = cmp_nvim_lsp.default_capabilities(capabilities),
+			init_options = {
+				settings = {
+					args = {"--ignore=E501"},
+				},
+			},
+		})
+	end,
+})
