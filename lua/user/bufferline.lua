@@ -8,7 +8,7 @@ bufferline.setup {
     numbers = "none",
     close_command = "Bdelete! %d",
     right_mouse_command = "Bdelete! %d",
-    --[[ buffer_close_icon = "", ]]
+    --[[ buffer_close_icon = "󰅖", ]]
     modified_icon = "●",
     --[[ close_icon = "", ]]
     left_trunc_marker = "",
