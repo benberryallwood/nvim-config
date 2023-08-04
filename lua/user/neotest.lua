@@ -8,11 +8,11 @@ neotest.setup({
 		require("neotest-python")({
 			dap = { justMyCode = false },
 		}),
-		-- require("neotest-plenary"),
-		--[[ require("neotest-vim-test")({ ]]
-      --[[ ignore_file_types = { "python", "vim", "lua" }, ]]
-  --[[     allow_file_types = { "feature", "cucumber" } ]]
-		--[[ }), ]]
+		require("neotest-plenary"),
+		require("neotest-vim-test")({
+			ignore_file_types = { "python", "vim", "lua" },
+			allow_file_types = { "feature", "cucumber", "javascript" },
+		}),
 	},
 	diagnostic = {
 		enabled = true,
