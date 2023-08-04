@@ -25,4 +25,5 @@ require("user.neotest")
 require("user.nvim-dap")
 require("user.nvim-dap-ui")
 require("user.better-escape")
+require("user.duck")
 --[[ require("user.winbar") ]]

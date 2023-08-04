@@ -7,6 +7,9 @@ return {
 		config = function()
 			vim.cmd([[colorscheme nordfox]])
 		end,
+		dependencies = {
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
 	},
 
 	-- Dependencies for many plugins
@@ -127,12 +130,14 @@ return {
 	{ "mfussenegger/nvim-dap-python" },
 	{
 		"rcarriga/neotest",
+		lazy = false,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"antoinemadec/FixCursorHold.nvim",
 			"rcarriga/neotest-python",
 			"rcarriga/neotest-vim-test",
+			"rcarriga/neotest-plenary",
 		},
 	},
 	{
@@ -146,6 +151,9 @@ return {
 	{ "KabbAmine/vCoolor.vim" },
 	{ "amadeus/vim-convert-color-to" },
 	{ "norcalli/nvim-colorizer.lua" },
+
+  -- duck
+  { "tamton-aquib/duck.nvim" },
 
 	-- Impatient (startup time)
 	{ "lewis6991/impatient.nvim" },

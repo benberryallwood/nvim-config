@@ -151,6 +151,18 @@ local mappings = {
 		--   },
 	},
 
+	["p"] = {
+		name = "Pets",
+		c = {
+			function()
+				require("duck").hatch("🦀", 10)
+			end,
+			"Crab",
+		},
+		d = { require("duck").hatch, "Duck" },
+		s = { require("duck").cook, "Stop" },
+	},
+
 	["q"] = { "<cmd>q<cr>", "Quit" },
 
 	["t"] = {
