@@ -96,8 +96,18 @@ mason_lspconfig.setup_handlers({
 			capabilities = cmp_nvim_lsp.default_capabilities(capabilities),
 			init_options = {
 				settings = {
-					args = {"--ignore=E501"},
+					args = { "--ignore=E501" },
 				},
+			},
+		})
+	end,
+	["cucumber_language_server"] = function()
+		lspconfig.cucumber_language_server.setup({
+			on_attach = on_attach,
+			capabilities = cmp_nvim_lsp.default_capabilities(capabilities),
+			settings = {
+				features = { "**/*.feature" },
+				glue = { "**/steps/**/*.py" },
 			},
 		})
 	end,

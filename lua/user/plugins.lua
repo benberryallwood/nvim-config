@@ -35,6 +35,13 @@ return {
 		end,
 	},
 
+	-- Markdown rendering
+	{
+		"ellisonleao/glow.nvim",
+		config = true,
+		cmd = "Glow",
+	},
+
 	-- cmp plugins
 	{ "hrsh7th/nvim-cmp" }, -- The completion plugin
 	{ "hrsh7th/cmp-buffer" }, -- buffer completions
@@ -75,6 +82,13 @@ return {
 	{ "goolord/alpha-nvim" },
 	{ "antoinemadec/FixCursorHold.nvim" }, -- This is needed to fix lsp doc highlight
 
+	-- Notes
+	{
+		"nvim-neorg/neorg",
+		build = ":Neorg sync-parsers",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -96,6 +110,7 @@ return {
 	{ "junegunn/gv.vim" },
 	{ "idanarye/vim-merginal" },
 	{ "tpope/vim-rhubarb" },
+	{ "sindrets/diffview.nvim" },
 
 	-- nvim-tree
 	{ "kyazdani42/nvim-web-devicons" },
@@ -152,8 +167,8 @@ return {
 	{ "amadeus/vim-convert-color-to" },
 	{ "norcalli/nvim-colorizer.lua" },
 
-  -- duck
-  { "tamton-aquib/duck.nvim" },
+	-- duck
+	{ "tamton-aquib/duck.nvim" },
 
 	-- Impatient (startup time)
 	{ "lewis6991/impatient.nvim" },
