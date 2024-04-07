@@ -1,6 +1,6 @@
 -- Automatically install lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
@@ -124,7 +124,7 @@ require("lazy").setup({
 	{ "sindrets/diffview.nvim" },
 
 	-- nvim-tree
-	{ "kyazdani42/nvim-web-devicons" },
+	{ "kyazdani42/nvim-web-devicons", lazy = true },
 	{ "kyazdani42/nvim-tree.lua" },
 
 	-- bufferline
