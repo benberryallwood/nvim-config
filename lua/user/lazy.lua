@@ -31,10 +31,7 @@ require("lazy").setup({
 	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used ny lots of plugins
 
 	-- Colourschemes
-	{ "ellisonleao/gruvbox.nvim" },
 	{ "folke/tokyonight.nvim" },
-	{ "sainnhe/everforest" },
-	{ "jeffkreeftmeijer/vim-dim" },
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
