@@ -24,8 +24,10 @@ configs.setup {
   autopairs = {
     enable = true
   },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false
-  }
+  -- context_commentstring = {
+  --   enable = true,
+  --   enable_autocmd = false
+  -- }
 }
+
+require('ts_context_commentstring').setup {}

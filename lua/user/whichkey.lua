@@ -43,10 +43,8 @@ local setup = {
 		scroll_up = "<c-u>", -- binding to scroll up inside the popup
 	},
 	window = {
-		border = "rounded", -- none, single, double, shadow
+		border = "none", -- none, single, double, shadow
 		position = "bottom", -- bottom, top
-		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
 		winblend = 0,
 	},
 	layout = {
@@ -57,7 +55,7 @@ local setup = {
 	},
 	ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
 	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-	show_help = true, -- show help message on the command line when the popup is visible
+	show_help = false, -- show help message on the command line when the popup is visible
 	triggers = "auto", -- automatically setup triggers
 	-- triggers = {"<leader>"} -- or specify a list manually
 	triggers_blacklist = {

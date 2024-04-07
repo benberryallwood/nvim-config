@@ -2,6 +2,9 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- deprecated treesitter module
+vim.g.skip_ts_context_commentstring_module = true
+
 -- tabs
 vim.opt.expandtab = true                        -- convert tabs to spaces
 vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation

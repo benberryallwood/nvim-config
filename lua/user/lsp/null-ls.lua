@@ -20,7 +20,8 @@ null_ls.setup({
 
     formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
     -- formatting.deno_fmt,
-    formatting.black.with({ extra_args = { "--fast" } }),
+    -- formatting.black.with({ extra_args = { "--fast" } }),
+    formatting.ruff,
     -- formatting.black.with { extra_args = { "--line-length=160" } }, -- for Python
     --[[ formatting.reorder_python_imports, -- for reordering Python imports ]]
     formatting.isort,            -- reorder python imports
@@ -36,10 +37,10 @@ null_ls.setup({
     formatting.rustfmt,
 
     -- diagnostics.flake8.with { extra_args = { "--ignore=E501" } }, -- for work project
-    diagnostics.flake8.with({
-      extra_args = { "--format", "default", "--stdin-display-name", "$FILENAME", "-", "--line-length", "160" },
-    }),
-    --[[ diagnostics.mypy, -- static type checker for Python ]]
+    -- diagnostics.flake8.with({
+    --   extra_args = { "--format", "default", "--stdin-display-name", "$FILENAME", "-", "--line-length", "160" },
+    -- }),
+    -- diagnostics.mypy, -- static type checker for Python
     --[[ diagnostics.pydocstyle, -- static analysis for docstring conventions ]]
     -- diagnostics.vulture, -- finds unused code in Python
     diagnostics.eslint,     -- js - needs configuring

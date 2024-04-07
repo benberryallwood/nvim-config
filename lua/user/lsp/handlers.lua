@@ -92,18 +92,6 @@ M.on_attach = function(client, bufnr)
 	end
 
 	lsp_highlight_document(client)
-
-	if
-		client.name ~= "emmet_ls"
-		and client.name ~= "tailwindcss"
-		and client.name ~= "eslint"
-		and client.name ~= "ltex"
-		and client.name ~= "cucumber_language_server"
-    and client.name ~= "ruff_lsp"
-	then
-		local navic = require("nvim-navic")
-		navic.attach(client, bufnr)
-	end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

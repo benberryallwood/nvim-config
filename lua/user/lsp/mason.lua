@@ -96,7 +96,7 @@ mason_lspconfig.setup_handlers({
 			capabilities = cmp_nvim_lsp.default_capabilities(capabilities),
 			init_options = {
 				settings = {
-					args = { "--ignore=E501" },
+					args = { "--ignore=E501", "--line-length=90" },
 				},
 			},
 		})
