@@ -39,10 +39,14 @@ require("lazy").setup({
 
 	-- Image of code
 	{
-		"narutoxy/silicon.lua",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		"michaelrommel/nvim-silicon",
+		lazy = true,
+		cmd = "Silicon",
 		config = function()
-			require("silicon").setup({})
+			require("silicon").setup({
+				-- Configuration here, or leave empty to use defaults
+				font = "Hack Nerd Font Mono=34;",
+			})
 		end,
 	},
 
