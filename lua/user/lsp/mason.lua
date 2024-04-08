@@ -75,6 +75,7 @@ local on_attach = function(client, bufnr)
 		and client.name ~= "ltex"
 		and client.name ~= "cucumber_language_server"
 		and client.name ~= "ruff_lsp"
+		and client.name ~= "ruff"
 	then
 		local navic = require("nvim-navic")
 		navic.attach(client, bufnr)
