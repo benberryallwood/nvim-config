@@ -86,10 +86,17 @@ require("lazy").setup({
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
+		config = function()
+			require("refactoring").setup()
+		end,
 	},
 
 	-- Telescope
-	{ "nvim-telescope/telescope.nvim" },
+	{ "nvim-telescope/telescope.nvim",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+		},
+  },
 	{ "xiyaowong/telescope-emoji.nvim" },
 
 	-- Project
