@@ -46,6 +46,7 @@ local on_attach = function(client, bufnr)
 	end, bufopts)
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+	vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, bufopts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 	vim.keymap.set("n", "<C-s>", vim.lsp.buf.signature_help, bufopts)
@@ -107,8 +108,16 @@ mason_lspconfig.setup_handlers({
 			on_attach = on_attach,
 			capabilities = cmp_nvim_lsp.default_capabilities(capabilities),
 			settings = {
-				features = { "**/*.feature" },
-				glue = { "**/steps/**/*.py" },
+				cucumber = {
+					cucumber = {
+						features = { "**/*.feature" },
+						glue = { "**/*.py" },
+						parameterTypes = {},
+					},
+					features = { "**/*.feature" },
+					glue = { "**/*.py" },
+					parameterTypes = {},
+				},
 			},
 		})
 	end,
