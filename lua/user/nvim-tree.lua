@@ -74,8 +74,6 @@ local function on_attach(bufnr)
 end
 
 nvim_tree.setup({
-	disable_netrw = true,
-	hijack_netrw = true,
 	open_on_tab = false,
 	sync_root_with_cwd = true,
 	hijack_directories = {

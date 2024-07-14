@@ -5,11 +5,8 @@ end
 
 local actions = require "telescope.actions"
 
-telescope.load_extension("emoji")
-
 telescope.setup {
   defaults = {
-
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
@@ -96,3 +93,5 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
+
+telescope.load_extension("fzf")

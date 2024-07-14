@@ -67,148 +67,72 @@ local setup = {
 	},
 }
 
-local opts = {
-	mode = "n", -- NORMAL mode
-	prefix = "<leader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
-}
-
 local mappings = {
-	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-	["b"] = {
+	{
+		"<leader>a",
+		"<cmd>Alpha<cr>",
+		desc = "Alpha",
+	},
+	{
+		"<leader>b",
 		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-		"Buffers",
+		desc = "Buffers",
 	},
-	["c"] = {
-		name = "Close",
-		b = { "<cmd>Bd!<cr>", "Buffer" },
-		o = { "<cmd>%bd|e#|bd#<cr>", "Other buffers" },
+	{
+		"<leader>c",
+		group = "Close",
 	},
-	["d"] = {
-		name = "Debug",
-		t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-		b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
-		c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-		C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
-		d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
-		g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
-		i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-		o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
-		u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
-		U = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
-		p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
-		r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
-		s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
-		q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
+	{
+		"<leader>cb",
+		"<cmd>Bd!<cr>",
+		desc = "Buffer",
 	},
-	["D"] = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostics list" },
-	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["f"] = {
-		name = "Find",
-		c = { "<cmd>lua require('telescope.builtin').colorscheme()<cr>", "Colourscheme" },
-		f = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Files" },
-		t = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Text" },
-		p = { "<cmd>Telescope projects<cr>", "Projects" },
+	{
+		"<leader>co",
+		"<cmd>%bd|e#|bd#<cr>",
+		desc = "Other buffers",
 	},
-	-- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	["F"] = { "<cmd>lua vim.lsp.buf.format()<CR>", "Format" },
-	-- p = {
-	--   name = "Packer",
-	--   c = { "<cmd>PackerCompile<cr>", "Compile" },
-	--   i = { "<cmd>PackerInstall<cr>", "Install" },
-	--   s = { "<cmd>PackerSync<cr>", "Sync" },
-	--   S = { "<cmd>PackerStatus<cr>", "Status" },
-	--   u = { "<cmd>PackerUpdate<cr>", "Update" },
-	-- },
+  { "<leader>d", group = "Debug"},
+  { "<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Toggle Breakpoint" },
+  { "<leader>db", "<cmd>lua require'dap'.step_back()<cr>", desc = "Step Back" },
+	{ "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", desc = "Continue" },
+	{ "<leader>dC", "<cmd>lua require'dap'.run_to_cursor()<cr>", desc = "Run To Cursor" },
+	{ "<leader>dd", "<cmd>lua require'dap'.disconnect()<cr>", desc = "Disconnect" },
+	{ "<leader>dg", "<cmd>lua require'dap'.session()<cr>", desc = "Get Session" },
+	{ "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", desc = "Step Into" },
+	{ "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", desc = "Step Over" },
+	{ "<leader>du", "<cmd>lua require'dap'.step_out()<cr>", desc = "Step Out" },
+	{ "<leader>dU", "<cmd>lua require'dapui'.toggle()<cr>", desc = "Toggle UI" },
+	{ "<leader>dp", "<cmd>lua require'dap'.pause()<cr>", desc = "Pause" },
+	{ "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", desc = "Toggle Repl" },
+	{ "<leader>ds", "<cmd>lua require'dap'.continue()<cr>", desc = "Start" },
+	{ "<leader>dq", "<cmd>lua require'dap'.close()<cr>", desc = "Quit" },
+  { "<leader>D", vim.diagnostic.setloclist, desc = "Diagnostics list" },
+  { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer" },
+  { "<leader>f", group = "Find" },
+  { "<leader>fc", "<cmd>lua require('telescope.builtin').colorscheme()<cr>", desc = "Colourscheme" },
+  { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", desc = "Files" },
+  { "<leader>ft", "<cmd>lua require('telescope.builtin').live_grep()<cr>", desc = "Text" },
+  { "<leader>F", "<cmd>lua vim.lsp.buf.format()<CR>", desc = "Format" },
+  { "<leader>g", group = "Git" },
+  { "<leader>gl", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", desc = "Lazygit" },
+  { "<leader>gg", "<cmd>Git<CR>", desc = "Fugitive" },
+  { "<leader>gb", "<cmd>lua require 'telescope.builtin'.git_branches()<CR>", desc = "Branches" },
 
-	["g"] = {
-		name = "Git",
-		l = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-		g = { "<cmd>Git<CR>", "Fugitive" },
-		b = { "<cmd>lua require 'telescope.builtin'.git_branches()<CR>", "Branches" },
-		--   j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-		--   k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-		--   l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-		--   p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-		--   r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-		--   R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-		--   s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-		--   u = {
-		--     "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-		--     "Undo Stage Hunk",
-		--   },
-		--   o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-		--   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		--   c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-		--   d = {
-		--     "<cmd>Gitsigns diffthis HEAD<cr>",
-		--     "Diff",
-		--   },
-	},
+  { "<leader>q", "<cmd>q<cr>", desc = "Quit" },
 
-	["p"] = {
-		name = "Pets",
-		c = {
-			function()
-				require("duck").hatch("🦀", 10)
-			end,
-			"Crab",
-		},
-		d = { require("duck").hatch, "Duck" },
-		s = { require("duck").cook, "Stop" },
-	},
+  { "<leader>t", group = "Test" },
+  { "<leader>td", "<cmd>lua require 'neotest'.run.run({strategy = \"dap\"})<cr>", desc = "Debug" },
+  { "<leader>tD", '<cmd>lua require \'neotest\'.run.run({vim.fn.expand("%"), strategy = "dap"})<cr>', desc = "Debug file" },
+  { "<leader>te", "<cmd>lua require 'neotest'.summary.toggle()<cr>", desc = "Explorer" },
+  { "<leader>tf", "<cmd>lua require 'neotest'.run.run(vim.fn.expand('%'))<cr>", desc = "File" },
+  { "<leader>ts", "<cmd>lua require 'neotest'.run.stop()<cr>", desc = "Stop nearest" },
+  { "<leader>tt", "<cmd>lua require 'neotest'.run.run()<cr>", desc = "Nearest" },
+  { "<leader>tp", "<cmd>lua require('neotest').output_panel.toggle()<cr>", desc = "Output panel" },
+  { "<leader>to", "<cmd>lua require('neotest').output.open({ enter = true })<cr>", desc = "Output" },
 
-	["q"] = { "<cmd>q<cr>", "Quit" },
-
-	["t"] = {
-		name = "Test",
-		d = { "<cmd>lua require 'neotest'.run.run({strategy = \"dap\"})<cr>", "Debug" },
-		D = { '<cmd>lua require \'neotest\'.run.run({vim.fn.expand("%"), strategy = "dap"})<cr>', "Debug file" },
-		e = { "<cmd>lua require 'neotest'.summary.toggle()<cr>", "Explorer" },
-		f = { "<cmd>lua require 'neotest'.run.run(vim.fn.expand('%'))<cr>", "File" },
-		s = { "<cmd>lua require 'neotest'.run.stop()<cr>", "Stop nearest" },
-		t = { "<cmd>lua require 'neotest'.run.run()<cr>", "Nearest" },
-		p = { "<cmd>lua require('neotest').output_panel.toggle()<cr>", "Output panel" },
-		o = { "<cmd>lua require('neotest').output.open({ enter = true })<cr>", "Output" },
-	},
-
-	["w"] = { "<cmd>w<cr>", "Write" },
-
-	-- l = {
-	--   name = "LSP",
-	--   a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-	--   d = {
-	--     "<cmd>Telescope lsp_document_diagnostics<cr>",
-	--     "Document Diagnostics",
-	--   },
-	--   w = {
-	--     "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-	--     "Workspace Diagnostics",
-	--   },
-	--   f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-	--   i = { "<cmd>LspInfo<cr>", "Info" },
-	--   I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-	--   j = {
-	--     "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-	--     "Next Diagnostic",
-	--   },
-	--   k = {
-	--     "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-	--     "Prev Diagnostic",
-	--   },
-	--   l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-	--   q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-	--   r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-	--   s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-	--   S = {
-	--     "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-	--     "Workspace Symbols",
-	--   },
-	-- },
+  { "<leader>w", "<cmd>w<cr>", desc = "Write" },
 }
 
 which_key.setup(setup)
-which_key.register(mappings, opts)
+which_key.add(mappings)

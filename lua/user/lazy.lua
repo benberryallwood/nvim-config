@@ -93,23 +93,16 @@ require("lazy").setup({
 
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim",
+    tag = "0.1.8",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
 		},
   },
-	{ "xiyaowong/telescope-emoji.nvim" },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
 
 	-- Project
-	{ "ahmedkhalf/project.nvim" },
 	{ "goolord/alpha-nvim" },
 	{ "antoinemadec/FixCursorHold.nvim" }, -- This is needed to fix lsp doc highlight
-
-	-- Notes
-	{
-		"nvim-neorg/neorg",
-		build = ":Neorg sync-parsers",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
 
 	-- Treesitter
 	{
@@ -135,8 +128,12 @@ require("lazy").setup({
 	{ "sindrets/diffview.nvim" },
 
 	-- nvim-tree
-	{ "kyazdani42/nvim-web-devicons", lazy = true },
-	{ "kyazdani42/nvim-tree.lua" },
+	{
+    "nvim-tree/nvim-tree.lua" ,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
 
 	-- bufferline
 	{ "akinsho/bufferline.nvim" },
@@ -166,15 +163,16 @@ require("lazy").setup({
 	{ "mfussenegger/nvim-dap" },
 	{ "mfussenegger/nvim-dap-python" },
 	{
-		"rcarriga/neotest",
+		"nvim-neotest/neotest",
 		lazy = false,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
-			"antoinemadec/FixCursorHold.nvim",
-			"rcarriga/neotest-python",
-			"rcarriga/neotest-vim-test",
-			"rcarriga/neotest-plenary",
+      "nvim-neotest/nvim-nio",
+      "antoinemadec/FixCursorHold.nvim",
+			"nvim-neotest/neotest-python",
+			"nvim-neotest/neotest-vim-test",
+			"nvim-neotest/neotest-plenary",
 		},
 	},
 	{
