@@ -85,13 +85,17 @@ require("lazy").setup({
 	},
 
 	-- Telescope
-	{ "nvim-telescope/telescope.nvim",
-    tag = "0.1.8",
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.8",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
 		},
-  },
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
+	},
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+	},
 
 	-- Project
 	{ "goolord/alpha-nvim" },
@@ -121,11 +125,11 @@ require("lazy").setup({
 
 	-- nvim-tree
 	{
-    "nvim-tree/nvim-tree.lua" ,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-  },
+		"nvim-tree/nvim-tree.lua",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
 
 	-- bufferline
 	{ "akinsho/bufferline.nvim" },
@@ -153,8 +157,8 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
-      "nvim-neotest/nvim-nio",
-      "antoinemadec/FixCursorHold.nvim",
+			"nvim-neotest/nvim-nio",
+			"antoinemadec/FixCursorHold.nvim",
 			"nvim-neotest/neotest-python",
 			"nvim-neotest/neotest-vim-test",
 			"nvim-neotest/neotest-plenary",
@@ -182,5 +186,5 @@ require("lazy").setup({
 	{ "justinmk/vim-sneak" },
 
 	-- jk kj for escape
-	{ "jdhao/better-escape.vim", event = "InsertEnter" },
+	{ "max397574/better-escape.nvim", event = "InsertEnter" },
 })
