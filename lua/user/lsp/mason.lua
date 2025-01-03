@@ -68,19 +68,6 @@ local on_attach = function(client, bufnr)
 	end
 
 	lsp_highlight_document(client)
-
-	if
-		client.name ~= "emmet_ls"
-		and client.name ~= "tailwindcss"
-		and client.name ~= "eslint"
-		and client.name ~= "ltex"
-		and client.name ~= "cucumber_language_server"
-		and client.name ~= "ruff_lsp"
-		and client.name ~= "ruff"
-	then
-		local navic = require("nvim-navic")
-		navic.attach(client, bufnr)
-	end
 end
 
 local lspconfig = require("lspconfig")
@@ -92,14 +79,12 @@ mason_lspconfig.setup_handlers({
 			capabilities = cmp_nvim_lsp.default_capabilities(capabilities),
 		})
 	end,
-	["ruff_lsp"] = function()
-		lspconfig.ruff_lsp.setup({
+	["ruff"] = function()
+		lspconfig.ruff.setup({
 			on_attach = on_attach,
 			capabilities = cmp_nvim_lsp.default_capabilities(capabilities),
 			init_options = {
-				settings = {
-					args = { "--ignore=E501", "--line-length=90" },
-				},
+				settings = {},
 			},
 		})
 	end,
