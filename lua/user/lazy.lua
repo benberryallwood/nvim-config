@@ -30,13 +30,6 @@ require("lazy").setup({
 	{ "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
 	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used ny lots of plugins
 
-	-- Colourschemes
-	{ "folke/tokyonight.nvim" },
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-	},
-
 	-- Image of code
 	{
 		"michaelrommel/nvim-silicon",
