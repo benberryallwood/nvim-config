@@ -65,7 +65,6 @@ keymap("n", "<leader>tg", ":TestVisit<CR>", opts)
 -- keymap("n", "<leader>gg", ":G<CR>", opts)
 -- keymap("n", "<leader>gl", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
 -- keymap("n", "<leader>gb", ":Telescope git_branches<CR>", opts)
-keymap("n", "<leader>m", ":MerginalToggle<CR>", opts)
 
 -- Run
 keymap("n", "<leader>rp", ":!python %<CR>", opts)  -- run python

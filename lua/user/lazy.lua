@@ -116,7 +116,6 @@ require("lazy").setup({
 	{ "lewis6991/gitsigns.nvim" },
 	{ "tpope/vim-fugitive" },
 	{ "junegunn/gv.vim" },
-	{ "idanarye/vim-merginal" },
 	{ "tpope/vim-rhubarb" },
 	{ "sindrets/diffview.nvim" },
 
