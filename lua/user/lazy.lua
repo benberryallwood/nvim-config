@@ -139,13 +139,6 @@ require("lazy").setup({
 	{ "akinsho/bufferline.nvim" },
 	{ "moll/vim-bbye" },
 
-	-- winbar
-	-- use("fgheng/winbar.nvim")
-	{
-		"SmiteshP/nvim-navic",
-		dependencies = "neovim/nvim-lspconfig",
-	},
-
 	-- lualine
 	{ "nvim-lualine/lualine.nvim" },
 
@@ -186,9 +179,6 @@ require("lazy").setup({
 	{ "KabbAmine/vCoolor.vim" },
 	{ "amadeus/vim-convert-color-to" },
 	{ "norcalli/nvim-colorizer.lua" },
-
-	-- duck
-	{ "tamton-aquib/duck.nvim" },
 
 	-- Impatient (startup time)
 	{ "lewis6991/impatient.nvim" },
