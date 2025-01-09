@@ -72,6 +72,9 @@ require("lazy").setup({
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
 
+	-- Mini
+	{ "echasnovski/mini.nvim", version = "*" },
+
 	-- Refactoring
 	{
 		"ThePrimeagen/refactoring.nvim",
@@ -109,9 +112,6 @@ require("lazy").setup({
 	{ "p00f/nvim-ts-rainbow" }, -- rainbow parentheses
 	{ "JoosepAlviste/nvim-ts-context-commentstring" }, -- context commentstring
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", lazy = false }, -- indent guides
-
-	-- Autopairs
-	{ "windwp/nvim-autopairs" }, -- Autopairs, integrates with both cmp and treesitter
 
 	-- Comments
 	{ "numToStr/Comment.nvim" }, -- Easily comment stuff
