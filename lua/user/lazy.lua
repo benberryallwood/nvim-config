@@ -182,9 +182,6 @@ require("lazy").setup({
 	-- Whichkey
 	{ "folke/which-key.nvim" },
 
-	-- Movement
-	{ "justinmk/vim-sneak" },
-
 	-- jk kj for escape
 	{ "max397574/better-escape.nvim", event = "InsertEnter" },
 })
