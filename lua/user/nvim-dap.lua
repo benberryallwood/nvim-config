@@ -8,8 +8,8 @@ if not py_status_ok then
 	return
 end
 
-dap_python.setup('~/.virtualenvs/debugpy/bin/python')
-dap_python.test_runner = 'pytest'
+dap_python.setup("~/.virtualenvs/debugpy/bin/python")
+dap_python.test_runner = "pytest"
 
 -- dap.adapters.python = {
 -- 	type = "executable",

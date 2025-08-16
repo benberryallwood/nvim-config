@@ -46,9 +46,8 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>hh", ":<Plug>RestNvim<CR>", opts)
 
 -- Run
-keymap("n", "<leader>rp", ":!python %<CR>", opts)  -- run python
-keymap("n", "<leader>rs", ":!sh %<CR>", opts)  -- run shell
-
+keymap("n", "<leader>rp", ":!python %<CR>", opts) -- run python
+keymap("n", "<leader>rs", ":!sh %<CR>", opts) -- run shell
 
 -- Visual --
 -- Stay in indent mode
