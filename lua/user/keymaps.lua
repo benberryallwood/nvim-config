@@ -39,32 +39,11 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
 
--- Telescope
--- find files
--- keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
--- find text
--- keymap("n", "<leader>ft", "<cmd>Telescope live_grep<CR>", opts)
-
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Rest.nvim
 keymap("n", "<leader>hh", ":<Plug>RestNvim<CR>", opts)
-
--- Symbols outline
-keymap("n", "<leader>o", ":SymbolsOutline<CR>", opts)
-
--- Testing
-keymap("n", "<leader>tT", ":TestNearest<CR>", opts)
-keymap("n", "<leader>tF", ":TestFile<CR>", opts)
-keymap("n", "<leader>ta", ":TestSuite<CR>", opts)
-keymap("n", "<leader>tl", ":TestLast<CR>", opts)
-keymap("n", "<leader>tg", ":TestVisit<CR>", opts)
-
--- Git
--- keymap("n", "<leader>gg", ":G<CR>", opts)
--- keymap("n", "<leader>gl", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
--- keymap("n", "<leader>gb", ":Telescope git_branches<CR>", opts)
 
 -- Run
 keymap("n", "<leader>rp", ":!python %<CR>", opts)  -- run python
@@ -76,10 +55,6 @@ keymap("n", "<leader>rs", ":!sh %<CR>", opts)  -- run shell
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- Move text up and down
--- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
--- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-
 -- Keep yanked text when pasting over other text
 keymap("v", "p", '"_dP', opts)
 
@@ -87,8 +62,6 @@ keymap("v", "p", '"_dP', opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
--- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation

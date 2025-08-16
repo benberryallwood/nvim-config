@@ -2,13 +2,15 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- deprecated treesitter module
-vim.g.skip_ts_context_commentstring_module = true
+-- use treesitter for folding
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevelstart = 99 -- default to folds open
 
 -- tabs
-vim.opt.expandtab = true                        -- convert tabs to spaces
-vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
+vim.opt.expandtab = true -- convert tabs to spaces
+vim.opt.shiftwidth = 2   -- the number of spaces inserted for each indentation
+vim.opt.tabstop = 2      -- insert 2 spaces for a tab
 
 -- :help options
 vim.opt.backup = false                          -- creates a backup file
@@ -37,7 +39,8 @@ vim.opt.cursorline = true                       -- highlight the current line
 vim.opt.number = true                           -- set numbered lines
 vim.opt.relativenumber = true                   -- set relative numbered lines
 vim.opt.numberwidth = 2                         -- set number column width to 2 {default 4}
-vim.opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
+vim.opt.signcolumn =
+"yes"                                           -- always show the sign column, otherwise it would shift the text each time
 vim.opt.wrap = false                            -- display lines as one long line
 vim.opt.scrolloff = 20                          -- keep x lines above and below cursor
 vim.opt.sidescrolloff = 20                      -- scrolloff on left and right of cursor
@@ -45,5 +48,5 @@ vim.opt.sidescrolloff = 20                      -- scrolloff on left and right o
 vim.opt.shortmess:append "c"
 
 vim.cmd "set whichwrap+=<,>,[,]"
-vim.cmd [[set iskeyword+=-]]                    -- treat hyphenated-words as single words for 'w' actions
+vim.cmd [[set iskeyword+=-]]       -- treat hyphenated-words as single words for 'w' actions
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
